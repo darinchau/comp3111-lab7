@@ -14,7 +14,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void testMySort() {
+    public void testSort() {
         int[] inputArray = {5, 3, 1, 4, 2};
         int[] expected = {1, 2, 3, 4, 5};
         int[] sorted = Library.mySort(inputArray);
@@ -22,7 +22,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void testMySortEmptyArray() {
+    public void testSortEmpty() {
         int[] inputArray = {};
         int[] expected = {};
         int[] sorted = Library.mySort(inputArray);
@@ -38,10 +38,43 @@ public class LibraryTest {
     }
 
     @Test
-    public void testDetectEven() {
+    public void testDetectNotOdd() {
         int inputNumber = 4;
         boolean expected = false;
         boolean isOdd = Library.detectOdd(inputNumber);
         assertEquals(expected, isOdd);
+    }
+
+    @Test
+    public void testTwoSum() {
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] expected = {0, 1};
+        int[] result = Library.twoSum(nums, target);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void testTwoSumNoSolution() {
+        int[] nums = {2, 7, 11, 15};
+        int target = 8;
+        try {
+            Library.twoSum(nums, target);
+            fail("Expect IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            assertEquals("No solution.", e.getMessage());
+        }
+    }
+
+    @Test
+    public void testTwoSumEmptyArray() {
+        int[] nums = {};
+        int target = 9;
+        try {
+            Library.twoSum(nums, target);
+            fail("Expect IllegalArgumentException");
+        } catch (IllegalArgumentException e) {
+            assertEquals("No solution.", e.getMessage());
+        }
     }
 }
