@@ -6,8 +6,6 @@ public class Library {
 		System.out.println("Hello, JUnit 4!");	
 	}
 	
-
-	
 	public static int[] mySort(int[] inputArray) {
 		int[] sorted = inputArray;
 		Arrays.sort(sorted);

@@ -1,37 +1,47 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.*;
+import org.junit.Test;
+import java.util.Arrays;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
-
-class LibraryTest {
-
+public class LibraryTest {
 
     @Test
-    void mySort() {
-        int[] input = new int[] {2, 3, 1, 4, 5};
-        int[] expected = new int[] {1, 2, 3, 4, 5};
-        int[] actual = Library.mySort(input);
-        assertArrayEquals(expected, actual);
+    public void testMain() {
+        // Since the main method only prints a message, we cannot test its output directly.
+        // We can only ensure that it executes without throwing any exceptions.
+        Library.main(new String[]{});
     }
 
     @Test
-    void detectEvent1() {
-        int input1 = 1;
-        boolean expect1 = true;
-        boolean actual1 = Library.detectOdd(input1);
-
-        assertEquals(expect1, actual1);
+    public void testMySort() {
+        int[] inputArray = {5, 3, 1, 4, 2};
+        int[] expected = {1, 2, 3, 4, 5};
+        int[] sorted = Library.mySort(inputArray);
+        assertArrayEquals(expected, sorted);
     }
 
     @Test
-    void detectEvent2() {
-        int input2 = 2;
-        boolean expect2 = false;
-        boolean actual2 = Library.detectOdd(input2);
+    public void testMySortEmptyArray() {
+        int[] inputArray = {};
+        int[] expected = {};
+        int[] sorted = Library.mySort(inputArray);
+        assertArrayEquals(expected, sorted);
+    }
 
-        assertEquals(expect2, actual2);
+    @Test
+    public void testDetectOdd() {
+        int inputNumber = 5;
+        boolean expected = true;
+        boolean isOdd = Library.detectOdd(inputNumber);
+        assertEquals(expected, isOdd);
+    }
+
+    @Test
+    public void testDetectEven() {
+        int inputNumber = 4;
+        boolean expected = false;
+        boolean isOdd = Library.detectOdd(inputNumber);
+        assertEquals(expected, isOdd);
     }
 }
